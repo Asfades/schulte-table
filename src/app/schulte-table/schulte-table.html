@@ -1,0 +1,13 @@
+<div
+  class="grid"
+  role="grid"
+  [attr.aria-label]="size() + ' by ' + size() + ' Schulte table'"
+  [style.--schulte-columns]="size()"
+  [style.grid-template-columns]="columns()"
+  [style.font-size.px]="fontSize()"
+  [style.width]="width()"
+>
+  @for (number of numbers(); track $index) {
+    <span class="cell" role="gridcell">{{ number }}</span>
+  }
+</div>

@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  container-type: inline-size;
+  gap: 2px;
+  padding: 2px;
+  background: #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 12%);
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 0;
+  background: #fff;
+  border-radius: 4px;
+  color: #0f172a;
+  /* Honour the chosen size, but shrink to fit once the cells are narrower than the glyphs. */
+  font-size: min(1em, calc(100cqi / var(--schulte-columns) * 0.46));
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  user-select: none;
+}

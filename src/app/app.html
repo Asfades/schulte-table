@@ -1,0 +1,41 @@
+<main class="page">
+  <h1 class="title">Schulte Table</h1>
+
+  <section class="controls">
+    <label class="control">
+      <span class="control__label">Table size</span>
+      <select
+        class="control__select"
+        autocomplete="off"
+        [value]="size()"
+        (change)="setSize($any($event.target).value)"
+      >
+        @for (option of sizes; track option) {
+          <option [value]="option" [selected]="option === size()">
+            {{ option }} &times; {{ option }}
+          </option>
+        }
+      </select>
+    </label>
+
+    <label class="control">
+      <span class="control__label"
+        >Text size <span class="control__value">{{ fontSize() }}px</span></span
+      >
+      <input
+        class="control__range"
+        autocomplete="off"
+        type="range"
+        [min]="minFontSize"
+        [max]="maxFontSize"
+        step="1"
+        [value]="fontSize()"
+        (input)="setFontSize($any($event.target).value)"
+      />
+    </label>
+  </section>
+
+  <app-schulte-table [numbers]="numbers()" [size]="size()" [fontSize]="fontSize()" />
+
+  <button class="generate" type="button" (click)="generate()">Generate</button>
+</main>
