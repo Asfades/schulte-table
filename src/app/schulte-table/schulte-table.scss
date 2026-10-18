@@ -31,3 +31,21 @@
   font-weight: 600;
   user-select: none;
 }
+
+/* Browsers drop background colours when printing, which would erase the cell gaps;
+   draw the lines with borders instead. */
+@media print {
+  .grid {
+    gap: 0;
+    padding: 0;
+    background: none;
+    border: 1px solid #000;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .cell {
+    border: 1px solid #000;
+    border-radius: 0;
+  }
+}

@@ -83,4 +83,19 @@ describe('App', () => {
 
     expect(root.querySelector<HTMLElement>('.grid')!.style.fontSize).toBe('42px');
   });
+
+  it('should open the browser print dialog when Print is clicked', async () => {
+    const print = vi.spyOn(window, 'print').mockImplementation(() => {});
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const button = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>(
+      'button.print',
+    )!;
+
+    expect(button.textContent?.trim()).toBe('Print');
+    button.click();
+
+    expect(print).toHaveBeenCalledTimes(1);
+    print.mockRestore();
+  });
 });

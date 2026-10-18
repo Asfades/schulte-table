@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, linkedSignal, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, linkedSignal, signal } from '@angular/core';
 import { SchulteTable } from './schulte-table/schulte-table';
 
 export const MIN_SIZE = 2;
@@ -24,6 +25,8 @@ function shuffledNumbers(count: number): readonly number[] {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
+  private readonly window = inject(DOCUMENT).defaultView;
+
   protected readonly minSize = MIN_SIZE;
   protected readonly maxSize = MAX_SIZE;
   protected readonly minFontSize = MIN_FONT_SIZE;
@@ -45,6 +48,10 @@ export class App {
 
   protected generate(): void {
     this.numbers.set(shuffledNumbers(this.size() * this.size()));
+  }
+
+  protected print(): void {
+    this.window?.print();
   }
 
   protected setSize(value: string): void {

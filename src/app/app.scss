@@ -84,3 +84,48 @@
     outline-offset: 2px;
   }
 }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.print {
+  padding: 12px 32px;
+  background: #fff;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  color: #0f172a;
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.15s ease-in-out;
+
+  &:hover {
+    background: #f1f5f9;
+  }
+
+  &:active {
+    background: #e2e8f0;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #94a3b8;
+    outline-offset: 2px;
+  }
+}
+
+/* On paper only the title and the table matter. */
+@media print {
+  .controls,
+  .actions {
+    display: none;
+  }
+
+  .page {
+    padding: 0;
+  }
+}

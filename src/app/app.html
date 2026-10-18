@@ -37,5 +37,8 @@
 
   <app-schulte-table [numbers]="numbers()" [size]="size()" [fontSize]="fontSize()" />
 
-  <button class="generate" type="button" (click)="generate()">Generate</button>
+  <div class="actions">
+    <button class="generate" type="button" (click)="generate()">Generate</button>
+    <button class="print" type="button" (click)="print()">Print</button>
+  </div>
 </main>
